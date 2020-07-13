@@ -30,7 +30,7 @@ func main() {
 	// Add CORS middleware around every request
 	// See https://github.com/rs/cors for full option listing
 	router.Use(cors.New(cors.Options{
-		AllowedOrigins:   []string{"postgres://oadxreyqmffgnh:1bd75bcd83cf9e171d63dc62dc19be625150e7541b0dc2f2b4ff8fe56706fa69@ec2-54-247-118-139.eu-west-1.compute.amazonaws.com:5432/d7sbv5fgdtfjdr"},
+		AllowedOrigins:   []string{"http://localhost:8080"},
 		AllowCredentials: true,
 		Debug:            true,
 	}).Handler)
