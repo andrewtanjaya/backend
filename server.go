@@ -19,6 +19,13 @@ const defaultPort = "8080"
 func main() {
 	port := os.Getenv("PORT")
 
+	//pgDB := pg.Connect(&pg.Options{
+	//	Addr:     ":5432",
+	//	User:     "oadxreyqmffgnh",
+	//	Password: "1bd75bcd83cf9e171d63dc62dc19be625150e7541b0dc2f2b4ff8fe56706fa69",
+	//	Database: "d7sbv5fgdtfjdr",
+	//})
+
 	opt, err := pg.ParseURL("postgres://oadxreyqmffgnh:1bd75bcd83cf9e171d63dc62dc19be625150e7541b0dc2f2b4ff8fe56706fa69@ec2-54-247-118-139.eu-west-1.compute.amazonaws.com:5432/d7sbv5fgdtfjdr?sslmode=require")
 	if err != nil {
 		panic(err)
