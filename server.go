@@ -23,7 +23,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	pgDB := pg.Connect(opt)
 
 	router := chi.NewRouter()
