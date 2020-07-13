@@ -14,7 +14,7 @@ import (
 	"github.com/99designs/gqlgen/graphql/playground"
 )
 
-const defaultPort = "8080"
+const defaultPort = "6000"
 
 func main() {
 	port := os.Getenv("PORT")
@@ -37,7 +37,7 @@ func main() {
 	// Add CORS middleware around every request
 	// See https://github.com/rs/cors for full option listing
 	router.Use(cors.New(cors.Options{
-		AllowedOrigins:   *,
+		AllowedOrigins:   []string{"http://localhost:4200"},
 		AllowCredentials: true,
 		Debug:            true,
 	}).Handler)
@@ -53,4 +53,8 @@ func main() {
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, router))
+
 }
+
+
+
