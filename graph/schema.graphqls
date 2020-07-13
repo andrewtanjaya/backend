@@ -1,0 +1,75 @@
+type Video{
+  videoId : ID!
+  videoUrl : String!
+  videoTitle : String!
+  videoDesc : String!
+  videoCat : String!
+  videoThumb : String!
+  playlistId : Int!
+  likeCount : Int!
+  dislikeCount : Int!
+  AgeRestriction : Boolean!
+  visibility : String!
+  location : String!
+  status : String!
+  premium : Boolean!
+}
+
+type playlist{
+  playlistId : ID!
+  playlistName : String!
+  userId : Int!
+  visibility : String
+}
+
+type user{
+  userId : ID!
+  member : Boolean!
+  imgUrl : String!
+  email : String!
+  userName : String!
+  subscriberCount : Int!
+}
+
+type comment{
+  commentId : ID!
+  userId : Int!
+  videoId : Int!
+  comment : String!
+  like : Int!
+  dislike : Int!
+}
+
+type reply{
+  replyId : ID!
+  commentId : Int!
+  userId : Int!
+  reply : String!
+}
+
+type Query{
+  videos : [Video!]!
+}
+
+input newVideo{
+  videoUrl : String!
+  videoTitle : String!
+  videoDesc : String!
+  videoCat : String!
+  videoThumb : String!
+  playlistId : Int!
+  likeCount : Int!
+  dislikeCount : Int!
+  AgeRestriction : Boolean!
+  visibility : String!
+  location : String!
+  status : String!
+  premium : Boolean!
+  viewCount : Int!
+}
+
+type Mutation{
+  createVideo(input : newVideo) : Video!
+  updateVideo(id : ID!,input:newVideo): Video!
+  deleteVideo(id : ID!) : Boolean!
+}
