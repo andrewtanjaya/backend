@@ -1,14 +1,15 @@
 package main
 
 import (
+	"github.com/go-pg/pg/v10"
 	"github.com/go-chi/chi"
-	"github.com/go-pg/pg/v9"
 	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"os"
 	"tpaWeb/graph"
 	"tpaWeb/graph/generated"
+	"tpaWeb/postgres"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -30,8 +31,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	pgDB := pg.Connect(opt)
 
+	pgDB := pg.Connect(opt)
+	pgDB.AddQueryHook(postgres.DBLogger{})
+
+	defer pgDB.Close()
 	router := chi.NewRouter()
 
 	// Add CORS middleware around every request
