@@ -28,7 +28,7 @@ func (r *queryResolver) Videos(ctx context.Context) ([]*model.Video, error) {
 
 	err := r.DB.Model(&videos).Select()
 	if err != nil {
-		fmt.Println(err);
+		fmt.Println(err)
 		return nil, errors.New("Failed to Query computers")
 	}
 
