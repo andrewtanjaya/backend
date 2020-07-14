@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://ec2-54-247-118-139.eu-west-1.compute.amazonaws.com:5432/d7sbv5fgdtfjdr</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Soutube@localhost" uuid="e3a330f5-6849-4d4e-b02d-e4b5eabcb6fb">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/Soutube</jdbc-url>
+    </data-source>
   </component>
 </project>
